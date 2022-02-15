@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mkdir microservicesaaacr
-cd microservices
+mkdir microservices
+cd microservices || exit
 
 spring init \
 --boot-version=2.5.2 \
