@@ -80,7 +80,8 @@ public class AuthorizationServerConfig {
       .scope(OidcScopes.OPENID)
       .scope("product:read")
       .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
-      .tokenSettings(ts -> ts.accessTokenTimeToLive(Duration.ofHours(1)))
+      .tokenSettings(ts -> ts.accessTokenTimeToLive(Duration.ofMinutes(1)))
+//            todo
       .build();
     return new InMemoryRegisteredClientRepository(writerClient, readerClient);
   }
