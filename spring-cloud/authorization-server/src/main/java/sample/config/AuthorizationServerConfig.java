@@ -80,8 +80,7 @@ public class AuthorizationServerConfig {
       .scope(OidcScopes.OPENID)
       .scope("product:read")
       .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
-      .tokenSettings(ts -> ts.accessTokenTimeToLive(Duration.ofMinutes(1)))
-//            todo
+      .tokenSettings(ts -> ts.accessTokenTimeToLive(Duration.ofHours(1)))
       .build();
     return new InMemoryRegisteredClientRepository(writerClient, readerClient);
   }
@@ -96,7 +95,7 @@ public class AuthorizationServerConfig {
 
   @Bean
   public ProviderSettings providerSettings() {
-    return new ProviderSettings().issuer("http://auth-server:9999");
+    return new ProviderSettings().issuer("http://auth-server");
   }
 }
 //CHECKSTYLE:ON
